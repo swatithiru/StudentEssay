@@ -1,0 +1,93 @@
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  /*color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;*/
+  position: absolute;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 400px;
+	padding: 40px;
+	background: rgba(0,0,0,.8);
+	box-sizing: border-box;
+	box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	border-radius: 10px;
+}
+.tabcontent .inputBox
+{
+	position: relative;
+}
+.tabcontent .inputBox input
+{
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #000;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid #000;
+	outline: none;
+	background: transparent;
+}
+.tabcontent h2
+{
+	margin: 0 0 30px;
+	padding: 0;
+	color: #000;
+	text-align: center;
+}
+.tabcontent .inputBox label
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #000;
+	letter-spacing: 1px;
+	pointer-events: none;
+	transition: .5s;
+}
+
+.tabcontent .inputBox input:focus ~ label,
+.tabcontent .inputBox input:valid ~ label
+{
+	top: -18px;
+	left: 0;
+	color: #000000;
+	font-size:12px;
+}
+
+#Student_list {background-color: orange;}
+#Act {background-color: orange;}
+#Add_stu {background-color: orange;}
+#Add_Title {background-color: orange;}
