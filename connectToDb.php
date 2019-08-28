@@ -6,13 +6,13 @@
  * and open the template in the editor.
  */
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "login";
+$passworddb = "login";
 $dbname = "masterdb";
 
 try {
     
-        $db = mysqli_connect($servername,$username,$password,$dbname);
+        $db = mysqli_connect($servername,$username,$passworddb,$dbname);
     }
     catch(Exception $e)
     {

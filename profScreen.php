@@ -1,16 +1,3 @@
-<?php
-require('connectToDb.php');
-
-$student_query ="SELECT * FROM profile ORDER BY profileid ASC";
-$student_result = mysqli_query($db,$student_query);
-$student_list = '';
-while($row = mysqli_fetch_array($student_result))
-{
-	$student_list .= '
-   <li><a href="#'.$row["profileid"] .$row["name"].'</a></li>
-  ';
-}
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +12,7 @@ while($row = mysqli_fetch_array($student_result))
 <body onload="getDefault()">
 <h2 align="center">Professor Activity Screen</h2>
 
-<form method="post" action="main_screen.php">
+<form method="post" action="profScreen.php">
     <button class="tablink" onclick="openPage('Student_list', this, 'orange')" id="defaultOpen">Student List</button>
     <button class="tablink" onclick="openPage('Act', this, 'orange')">Activity</button>
     <button class="tablink" onclick="openPage('Add_stu', this, 'orange')">Add Student</button>
@@ -34,7 +21,7 @@ while($row = mysqli_fetch_array($student_result))
 <div id="Student_list" class="tabcontent">
 <h3> List Of Students Enrolled</h3>
 <?php
-
+ require('connectToDb.php');
 $student_query ="SELECT name FROM profile ORDER BY profileid";
 $result = mysqli_query($db,$student_query);
 $array = Array();
@@ -76,7 +63,7 @@ while($row1 = mysqli_fetch_assoc($result))
     </div>
 <br>
 <?php
-if(isset($_POST['submit']))
+ if(isset($_POST['submit']))
 {
 	$name = $_POST['name'];
         $email = $_POST['email'];
@@ -86,7 +73,7 @@ if(isset($_POST['submit']))
         if (create_user($name, $email, $password)) {
 				
 						echo 'New User Registered Successfully . Re directing to student list page.....';
-						header("refresh:3;url=main_screen.php"); 
+						header("refresh:0;url=profScreen.php"); 
 						exit;
 					  
 			  
@@ -117,6 +104,7 @@ function is_valid_email($email)
 		echo "Invalid email format."; 
 		return false;
 	}
+                require('connectToDb.php');
 		$slquery = "SELECT 1 FROM profile WHERE email = '$email'";
 		$selectresult = mysqli_query($db,$slquery);
 		if(mysqli_num_rows($selectresult)>0) {
@@ -125,9 +113,9 @@ function is_valid_email($email)
 		}
 	return true;
 }
-function create_user($name,$email, $password)
+function create_user($name,$email, $pass)
 {
-
+          require('connectToDb.php');
 	  $ins = "INSERT INTO profile(name,email,image,type,dob) VALUES ('$name','$email','image','student','')";     
 	  $result = mysqli_query($db,$ins);
 	  
@@ -137,7 +125,7 @@ function create_user($name,$email, $password)
           $row = mysqli_fetch_assoc($retrive);
 	  $new =  $row['profileid'];
 	  
-          $insLogin = "INSERT INTO login(uname,password,profilefk) VALUES ('$email','$password','$new')";
+          $insLogin = "INSERT INTO login(uname,password,profilefk) VALUES ('$email','$pass','$new')";
 	  $resLogin = mysqli_query($db,$insLogin);
       if($resLogin){
           return true; // Success
@@ -148,7 +136,6 @@ function create_user($name,$email, $password)
 	  
 	}
 ?>
-
 </div>
 <div id="Add_Title" class="tabcontent">
     <h3>Add Topic</h3>
@@ -174,20 +161,21 @@ function create_user($name,$email, $password)
 <br>
 <br>
 <?php
-
-    $ins = "INSERT INTO essay(topic,picture,spellcheck) VALUES ('nov','','1')";     
-    $result = mysqli_query($db,$ins);
-    if($result){
-        mysqli_close($db);
-        echo "<script>printMessage()</script>";           
-      }
-    else{
-        mysqli_close($db);
-        echo "error registering";
-      }
- 
-?>
-
+if(isset($_POST['Enter']))
+{
+    echo 'entered';
+}
+//    $ins = "INSERT INTO essay(topic,picture,spellcheck) VALUES ('nov','','1')";     
+//    $result = mysqli_query($db,$ins);
+//    if($result){
+//        mysqli_close($db);
+//        echo "<script>printMessage()</script>";           
+//      }
+//    else{
+//        mysqli_close($db);
+//        echo "error registering";
+//      }
+ ?>
 </div>
 </form>
 </body>
