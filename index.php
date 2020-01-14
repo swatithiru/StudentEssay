@@ -32,13 +32,19 @@ require('connectToDb.php');
 if(isset($_POST['submit']))
 {
 	$username = $_POST['username'];
-        $password = $_POST['password'];
+    $password = $_POST['password'];
 	$getlogindetails = "SELECT * FROM login WHERE uname = '$username' and password = '$password'";
 	$selectresult = mysqli_query($db,$getlogindetails);
         
 	$result= mysqli_fetch_assoc($selectresult);
-	if(mysqli_num_rows($selectresult)>0) {
-		header("refresh:0;url=profScreen.php"); 
+	$count = mysqli_num_rows($selectresult);
+	if($count == 1) {
+		session_start();                
+		$_SESSION['username'] = $username;
+		if($username == 'admin')
+			header("refresh:0;url=profScreen.php");
+		else
+			header("refresh:0;url=studentLand.php");
 		//echo $result['uname'] . " " . "has succesfully Logged in";
 	}
 	else

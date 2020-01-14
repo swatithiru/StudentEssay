@@ -1,4 +1,15 @@
- function valueChanged(){
+function bufferTime(){
+    if (document.getElementById('buffercheck').checked) 
+        {document.getElementById("buffer_time").style.display = 'block';
+    }
+    else
+        document.getElementById("buffer_time").style.display = 'none';
+    }
+function logOut(){
+        window.location.href='index.php';
+    }
+	
+function valueChanged(){
     if (document.getElementById('advancecheck').checked) 
         {document.getElementById("subnetmaskdiv").style.display = 'block';
     }
@@ -13,6 +24,7 @@
     else
         document.getElementById("upload").style.display = 'none';
     }
+	
     
 function openPage(pageName,elmnt,color) {
   var i, tabcontent, tablinks;
@@ -33,9 +45,22 @@ function openPage(pageName,elmnt,color) {
 function getDefault(){
     document.getElementById("defaultOpen").click();
 }
-
+function change() // no ';' here
+{
+    var elem = document.getElementById("myButton1");
+    if (elem.value=="START ACTIVITY") elem.value = "STOP ACTIVITY";
+    else elem.value = "START ACTIVITY";
+}
 function printMessage()
 {
 	document.getElementById("demo").innerHTML = "New Essay is successfully added";
 
+}
+function changeStatus()
+{
+	var changestatus = document.getElementById("changeButton");
+	if(changestatus.value == "START ACTIVITY") 
+		changestatus.value = "stop Activity";
+	else
+		changestatus.value = "start Activity";
 }
