@@ -23,16 +23,18 @@ $usersession ='none';
 	<style>
 	#wrapper
 	{
-	width:90%;
-	margin:auto;
+	width:100%;
+	
+	
 	}
 .indexbody {
   margin:0;
   padding:0;
-  margin-top: 20px;
   font-family: roboto;
   color: #777777;
   background-color: #FFFFFF; 
+  overfolw-x: hidden;
+  overflow-y: hidden;
 }
 
 	</style>
@@ -224,6 +226,9 @@ function create_user($name,$username, $password, $cpassword, $email,$dob)
 
     <!--================ start footer Area  =================-->
   <footer class="footer-area section_gap" align="center">
+	
+    </footer>
+	<footer class="footer-area section_gap" align="center">
 	
     </footer>
     <!--================ End footer Area  =================-->

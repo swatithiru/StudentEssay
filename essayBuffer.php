@@ -161,8 +161,9 @@ $row1 = mysqli_fetch_assoc($result)
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="main_title">
-			<label align="left" class="headercolor"><h1 class="headercolor">TITLE: <i><?php echo $row1['topic'] ?> </i></h1></label><br><br>
-			<?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $row1['picture'] ).'" height ="300" width ="300"/>'; ?>
+			<!--<label align="left" class="headercolor"><h3 class="headercolor">TITLE: </h1><h3 class="headercolor"><i><?php echo $row1['topic'] ?> </i></h3></label><br><br>-->
+			<label id="label" align="left" class="headercolor"> <strong>Topic</strong>: <?php echo $row1['topic']; ?></label><br> 
+			<?php if($row1['picture'] != '') echo '<img src="data:image/jpeg;base64,'.base64_encode( $row1['picture'] ).'" height ="300" width ="300"/>'; ?>
             </div>
 			<form method="post" action="studentwritingscreen.php">
 <div style="text-align: center;margin-top: 3px">

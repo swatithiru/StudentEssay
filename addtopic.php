@@ -182,7 +182,7 @@ function bufferTime(){
     <div class="col-lg-12 form_group">
 	<form method="post" action="addtopic.php" enctype="multipart/form-data">
     <div id="spaceTop">
-	<input type="checkbox" name="advancecheck" id="advancecheck" value="enter topic" onchange="valueChanged()"/> Topic Name<br />
+	<input type="checkbox" name="advancecheck" id="advancecheck" value="enter topic" onchange="valueChanged()"/> <font color="#133337"><i><strong>Topic Name</strong></i></font><br />
     <div id="subnetmaskdiv" style="display:none;">
 	<textarea rows="5" cols="42" placeholder="Start writing your essay Topic ." name="subnetmask" id="subnetmask">
 	</textarea><br>
@@ -190,19 +190,19 @@ function bufferTime(){
 	</div>
 	
     <div id="spaceTop">
-    <input type="checkbox" name="image" id="image" value="upload image" onchange="uploadimg()"/> Add Image<br />
+    <input type="checkbox" name="image" id="image" value="upload image" onchange="uploadimg()"/><font color="#133337"><i><strong> Add Image</strong></i></font><br />
     <div id="upload" style="display:none;">
     <input type="file" name="uploadfile" id="uploadfile" accept= "images/*" /><br>
     </div>
 	</div>
 	<div id="spaceTop">	
     <input type="hidden" name="spellcheck" value="0" />
-    <input type="checkbox" name="spellcheck" value="1">Spell Check(Enable/Disable)
+    <input type="checkbox" name="spellcheck" value="1"><font color="#133337"><i><strong> Spell Check(Enable/Disable)</strong></i></font>
 	<br>
 	</div>
 	
 	<div id="spaceTop">
-	<input type="checkbox" name="buffercheck" id="buffercheck" value="enter time" onchange="bufferTime()"/> Add Buffer Time(Default is 2 mins) <br />
+	<input type="checkbox" name="buffercheck" id="buffercheck" value="enter time" onchange="bufferTime()"/> <font color="#133337"><i><strong>Add Buffer Time(Default is 2 mins)</strong></i></font> <br />
     <div id="buffer_time" style="display:none;">
 	<input type="text" name="buffer" id="buffer" placeholder="Change buffer time."/><br>
 	<br>
@@ -210,7 +210,7 @@ function bufferTime(){
 	</div>
 	
 	<div id="spaceTop">
-	<input type="checkbox" name="settimer" id="settimer" value="set timer" onchange="setTimer()"/> Set Timer(Default is 5 mins) <br />
+	<input type="checkbox" name="settimer" id="settimer" value="set timer" onchange="setTimer()"/> <font color="#133337"><i><strong>Set Timer(Default is 5 mins) </strong></i></font><br />
     <div id="set_timer" style="display:none;">
 	<input type="text" name="settime" id="settime" placeholder="set timer."/><br>
 	<br>
@@ -286,9 +286,7 @@ if(isset($_POST['Enter']))
     <!--================ End Testimonial Area =================-->
 
     <!--================ Start footer Area  =================-->
-     <footer class="footer-area section_gap" align="center">
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    </footer>
+     
     <!--================ End footer Area  =================-->
 
     <!-- Optional JavaScript -->

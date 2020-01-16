@@ -201,7 +201,7 @@ $activityid = $row1['activityid'];
             <div class="main_title">
               <h2 class="headercolor"><i> You Can Start Writing Your Essay</i></h2>
 			  <label id="label" align="left" class="headercolor"> <strong>Topic</strong>: <?php echo $row1['topic']; ?></label><br> 
-			  <label id="label" align="left" class="headercolor"><strong>Time left:</strong> <span id="timerCheck"></span></label><br>
+			  <label id="label" align="left" class="headercolor"><strong>Time left:</strong><font color="blue"><i><span id="timerCheck"></span></i></font></label><br>
 			  <?php if($row1['picture'] != '') echo '<img src="data:image/jpeg;base64,'.base64_encode( $row1['picture'] ).'" height ="300" width ="300"/>'; ?><br>
               
             </div>
@@ -216,15 +216,16 @@ $activityid = $row1['activityid'];
 
                
 <div class="form-group shadow-textarea">
-  <textarea class="form-control z-depth-1" id="content" spellcheck = <?php echo $spellcheckInd?> rows="25" cols="100" name="content" placeholder="Start writing your essay..."></textarea>
+  <h3 class="headercolor">Answer:</h3> 
+  <textarea class="form-control z-depth-1" id="content" spellcheck = <?php echo $spellcheckInd?> rows="15" cols="200" name="content" placeholder="Start writing your essay..."></textarea>
 </div>
 <div class="form-group">  
                      <input type="hidden" name="studentid_fk" id="studentid_fk" value="<?php echo $profileid;?>" />  
 					 <input type="hidden" name="activityid_fk" id="activityid_fk" value="<?php echo $activityid;?>" />  
                      <div id="autoSave"></div>  
                 </div>  
-<div style="text-align: center;">
-<input type="submit" name="Finish" value="Finish" class="myButton">
+<div style="text-align: left;">
+<input type="submit" name="Finish" value="Grade Me!" class="myButton" align="left">
 </div>
 <br />
 <br />

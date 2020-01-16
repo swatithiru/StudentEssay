@@ -27,6 +27,9 @@ th {
   background-color: #ff7f50 ;
   color: white;
 }
+.link { color: #133337; 
+font-style: italic;
+}
 </style>
     <link rel="icon" href="img/favicon.png" type="image/png" />
     <title>View Activity</title>
@@ -172,8 +175,8 @@ while($row1 = mysqli_fetch_assoc($result))
 {
 ?>
     <tr>
-        <td><?php echo $count++; $topic =  $row1['topic']; ?></td>
-        <td><a href ="startactivity.php?topic=<?php echo $topic;?>"><?php echo $topic; ?></a></td>
+        <td class="link"><?php echo $count++; $topic =  $row1['topic']; ?></td>
+        <td><a class="link" href ="startactivity.php?topic=<?php echo $topic;?>"><?php echo $topic; ?></a></td>
     </tr>
 <?php                
 }
@@ -205,9 +208,7 @@ while($row1 = mysqli_fetch_assoc($result))
     <!--================ End Testimonial Area =================-->
 
     <!--================ Start footer Area  =================-->
-     <footer class="footer-area section_gap" align="center">
-	Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    </footer>
+    
     <!--================ End footer Area  =================-->
 
     <!-- Optional JavaScript -->

@@ -17,6 +17,211 @@
     <link rel="stylesheet" href="vendors/nice-select/css/nice-select.css" />
     <!-- main css -->
     <link rel="stylesheet" href="css/style.css" />
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script>
+	$(function() {
+		$("#name_error").hide();
+		$("#user_error").hide();
+		$("#password_error").hide();
+		$("#confirm_error").hide();
+		$("#email_error").hide();
+		$("#date_error").hide();
+		
+		var name_error = false;
+		var error_username = false;
+		var error_password = false;
+		var error_confirmpassword = false;
+		var error_email = false;
+		var error_date = false;
+		
+		$("#name").focusout(function(){
+			check_name();
+		});
+		
+		$("#username").focusout(function(){
+			check_username();
+		});
+		
+		$("#password").focusout(function(){
+			check_password();
+		});
+		
+		$("#confirmpassword").focusout(function(){
+			check_confirmpassword();
+		});
+		
+		$("#email").focusout(function(){
+			check_email();
+		});
+		
+		$("#date").focusout(function(){
+			check_date();
+		});
+		
+		function check_name() {
+			var name_length = $("#name").val().length;
+			if(name_length != 0)
+			{
+			if(name_length < 5 || name_length > 20)
+			{
+				$("#name_error").html("Should be between 5-20 characters");
+				$("#name_error").show();
+				$("#name_error").css("color", "red");
+				$("#name_error").css("font-style", "italic");
+				$("#name_error").css("font-weight", "bold");
+				name_error = true;
+			}
+			else
+			{
+				$("#name_error").hide();
+			}
+			}
+			else
+			{
+				$("#name_error").html("Name can not be empty");
+				$("#name_error").css("color", "red");
+				$("#name_error").css("font-style", "italic");
+				$("#name_error").css("font-weight", "bold");
+				$("#name_error").show();
+			}
+			
+		}
+		
+		function check_username() {
+			var username_length = $("#username").val().length;
+			if(username_length != 0)
+			{
+			if(username_length < 5 || username_length > 20)
+			{
+				$("#user_error").html("Should be between 5-20 characters");
+				$("#user_error").show();
+				$("#user_error").css("color", "red");
+				$("#user_error").css("font-style", "italic");
+				$("#user_error").css("font-weight", "bold");
+				error_username = true;
+			}
+			else
+			{
+				$("#user_error").hide();
+			}
+			}
+			else
+			{
+				$("#user_error").html("User name cannot be empty");
+				$("#user_error").show();
+				$("#user_error").css("color", "red");
+				$("#user_error").css("font-style", "italic");
+				$("#user_error").css("font-weight", "bold");
+			}
+			
+		}
+		
+		function check_password() {
+			var password_length = $("#password").val().length;
+			if(password_length != 0)
+			{
+			if(password_length < 5 || password_length > 20)
+			{
+				$("#password_error").html("Should be At least 8 characters");
+				$("#password_error").show();
+				$("#password_error").css("color", "red");
+				$("#password_error").css("font-style", "italic");
+				$("#password_error").css("font-weight", "bold");
+				password_error = true;
+			}
+			else
+			{
+				$("#password_error").hide();
+			}
+			}
+			else
+			{
+				$("#password_error").html("Password cannot be empty");
+				$("#password_error").show();
+				$("#password_error").css("color", "red");
+				$("#password_error").css("font-style", "italic");
+				$("#password_error").css("font-weight", "bold");
+			}
+			
+		}
+		
+		function check_confirmpassword() {
+			var password = $("#password").val().length;
+			var confirmpassword = $("#confirm_error").val().length;
+			
+			if(password != confirmpassword)
+			{
+				$("#confirm_error").html("Passwords and Confirm Password don't match");
+				$("#confirm_error").show();
+				$("#confirm_error").css("color", "red");
+				$("#confirm_error").css("font-style", "italic");
+				$("#confirm_error").css("font-weight", "bold");
+				error_confirmpassword = true;
+			}
+			else
+			{
+				$("#confirm_error").hide();
+			}
+			
+		}
+		
+		function check_email() {
+			var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+			var email = $("#email").val().length;
+			if(email != 0)
+			{
+			if(pattern.test($("#email").val()))
+			{
+			$("#email_error").hide();	
+			}
+			else
+			{
+				
+				$("#email_error").html("Please enter a valid email address");
+				$("#email_error").show();
+				$("#email_error").css("color", "red");
+				$("#email_error").css("font-style", "italic");
+				$("#email_error").css("font-weight", "bold");
+				$("#email_error").css("font-style", "italic");
+				$("#email_error").css("font-weight", "bold");
+				error_email = true;
+			}
+			}
+			else
+			{
+				$("#email_error").html("Email address cannot be empty");
+				$("#email_error").show();
+				$("#email_error").css("color", "red");
+				$("#email_error").css("font-style", "italic");
+				$("#email_error").css("font-weight", "bold");
+				$("#email_error").css("font-style", "italic");
+				$("#email_error").css("font-weight", "bold");
+			}
+			
+		}
+		
+		function check_date() {
+			var date = $("#date").val().length;
+			if(date != 0)
+			{
+			  // do nothing
+			
+			}
+			else
+			{
+				$("#date_error").html("Date cannot be empty");
+				$("#date_error").show();
+				$("#date_error").css("color", "red");
+				$("#date_error").css("font-style", "italic");
+				$("#date_error").css("font-weight", "bold");
+				$("#date_error").css("font-style", "italic");
+				$("#date_error").css("font-weight", "bold");
+			}
+			
+		}
+		
+	});		
+	</script>
   </head>
 
   <body>
@@ -157,43 +362,49 @@
                   <div class="col-lg-12 form_group">
                     <input
                       name="name"
+					  id="name"
                       placeholder="Enter Your Name"
                       required=""
                       type="text"
-                    />
+                    /><span id="name_error"><font color="red"></font></span>
 					 <input
                       name="email"
+					  id="email"
                       placeholder="Enter Your Email Address"
                       pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
                       required=""
                       type="email"
-                    />
+                    /><span id="email_error"><font color="red"></font></span>
 					<input
                       name="username"
+					  id="username"
                       placeholder="Enter Your UserName"
                       required=""
                       type="text"
-                    />
+                    /><span id="user_error"><font color="red"></font></span>
                    <input
                       name="date"
+					  id="date"
                       placeholder="Enter Your DOB"
                       required=""
                       type="text"
 					  onfocus="this.type='date'"
 					  onblur="this.type='text'"
-                    />
+                    /><span id="date_error"><font color="red"></font></span>
 					<input
                       name="password"
+					  id="password"
                       placeholder="Enter Your Password"
                       required=""
                       type="password"
-                    />
+                    /><span id="password_error"><font color="red"></font></span>
 					<input
                       name="confirmpassword"
+					  id="confirmpassword"
                       placeholder="Enter Your Confirm Password"
                       required=""
                       type="password"
-                    />
+                    /><span id="confirm_error"><font color="red"></font></span>
                    
                    
                   </div>

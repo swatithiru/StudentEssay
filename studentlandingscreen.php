@@ -33,9 +33,17 @@ $usersession ='none';
   font-family: roboto;
   color: #777777;
   background-color: #FFFFFF; 
-  background: url('img/blog/post-img2.jpg');
+  background: url('img/event/e1.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  overflow-x:hidden;
+  overflow-y:hidden;
+  image-rendering: pixelated;
+  -webkit-background-size: cover;
+  -moz-background-size: cover; 
+  
+ 
+}
 }
 
 	</style>
